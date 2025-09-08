@@ -6,7 +6,7 @@ pipeline {
     }
 
     stages {
-        stage("org.com") {
+        stage("calculator") {
             when {
                 expression { return params.calculator }
         }
