@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        booleanParam(defaultValue: true, description: 'run org.com tests', name: 'calculator')
+        booleanParam(defaultValue: true, description: 'run calculator tests', name: 'calculator')
     }
 
     stages {
@@ -15,4 +15,12 @@ pipeline {
         }
        }
       }
+    post {
+        always {
+            allure([
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'allure-results']]
+                ])
+        }
+    }
 }
