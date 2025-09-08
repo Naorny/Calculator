@@ -25,7 +25,7 @@ private DecimalCalculator decimalCalculator;
     void sub() {
         Calculator decimalCalculator = new DecimalCalculator();
         int actual = Integer.parseInt(decimalCalculator.sub("20", "5"));
-        int expected = Integer.parseInt("30");
+        int expected = Integer.parseInt("15");
         assertEquals(expected, actual, "Incorrect numbers");
     }
 
@@ -41,7 +41,7 @@ private DecimalCalculator decimalCalculator;
     void div() {
         Calculator decimalCalculator = new DecimalCalculator();
         int actual = Integer.parseInt(decimalCalculator.div("20", "5"));
-        int expected = Integer.parseInt("30");
+        int expected = Integer.parseInt("4");
         assertEquals(expected, actual, "Incorrect numbers");
     }
 }

@@ -10,7 +10,7 @@ class BinaryCalculatorTest {
     void add() {
         Calculator binaryCalculator = new BinaryCalculator();
         int actual = Integer.parseInt(binaryCalculator.add("11", "10"));
-        int expected = Integer.parseInt("11");
+        int expected = Integer.parseInt("101");
         assertEquals(expected, actual, "Incorrect numbers");
     }
 
