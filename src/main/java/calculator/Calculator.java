@@ -1,4 +1,4 @@
-package org.com;
+package calculator;
 
 abstract class Calculator {
 

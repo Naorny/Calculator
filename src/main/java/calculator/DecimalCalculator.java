@@ -1,4 +1,4 @@
-package org.com;
+package calculator;
 
 class DecimalCalculator extends Calculator {
 

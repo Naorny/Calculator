@@ -1,4 +1,4 @@
-package org.com;
+package calculator;
 
 import static java.lang.Integer.toBinaryString;
 

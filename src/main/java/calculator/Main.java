@@ -1,4 +1,4 @@
-package org.com;
+package calculator;
 
 import java.util.Objects;
 import java.util.Scanner;

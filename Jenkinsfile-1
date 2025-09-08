@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     parameters {
-        booleanParam(defaultValue: true, description: 'run org.com tests', name: 'org.com')
+        booleanParam(defaultValue: true, description: 'run org.com tests', name: 'calculator')
     }
 
     stages {
         stage("org.com") {
             when {
-                expression { return params.org.com }
+                expression { return params.calculator }
         }
         steps {
               echo "Tests are running"
