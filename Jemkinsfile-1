@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    parameters {
+        booleanParam(defaultValue: true, description: 'run org.com tests', name: 'org.com')
+    }
+
+    stages {
+        stage("org.com") {
+            when {
+                expression { return params.org.com }
+        }
+        steps {
+              echo "Tests are running"
+        }
+       }
+      }
+}
