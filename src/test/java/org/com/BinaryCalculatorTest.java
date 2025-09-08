@@ -11,7 +11,7 @@ class BinaryCalculatorTest {
         Calculator binaryCalculator = new BinaryCalculator();
         int actual = Integer.parseInt(binaryCalculator.add("11", "10"));
         int expected = Integer.parseInt("11");
-        assertEquals(expected, actual, "Error");
+        assertEquals(expected, actual, "Incorrect numbers");
     }
 
     @Test
@@ -19,7 +19,7 @@ class BinaryCalculatorTest {
         Calculator binaryCalculator = new BinaryCalculator();
         int actual = Integer.parseInt(binaryCalculator.sub("11", "10"));
         int expected = Integer.parseInt("1");
-        assertEquals(expected, actual, "Error");
+        assertEquals(expected, actual, "Incorrect numbers");
     }
 
     @Test
@@ -27,7 +27,7 @@ class BinaryCalculatorTest {
         Calculator binaryCalculator = new BinaryCalculator();
         int actual = Integer.parseInt(binaryCalculator.mult("11", "1"));
         int expected = Integer.parseInt("11");
-        assertEquals(expected, actual, "Error");
+        assertEquals(expected, actual, "Incorrect numbers");
     }
 
     @Test
@@ -35,6 +35,6 @@ class BinaryCalculatorTest {
         Calculator binaryCalculator = new BinaryCalculator();
         int actual = Integer.parseInt(binaryCalculator.div("11", "1"));
         int expected = Integer.parseInt("11");
-        assertEquals(expected, actual, "Error");
+        assertEquals(expected, actual, "Incorrect numbers");
     }
 }
