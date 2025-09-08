@@ -11,7 +11,7 @@ pipeline {
                 expression { return params.calculator }
         }
         steps {
-              echo "Tests are running"
+              mvn test
         }
        }
       }
