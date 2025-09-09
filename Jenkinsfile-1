@@ -20,7 +20,7 @@ pipeline {
             stage('Single Binary') {
                             steps {
                                 // Run specific test method in the specified class
-                                bat "mvn -Dtest=${params.BinaryCalculatorTest#${params.add}} test" //#${params.TEST_METHOD} test"
+                                bat "mvn -Dtest=${params.BinaryCalculatorTest}#${params.add}} test" //#${params.TEST_METHOD} test"
                             }
                         }
         }
