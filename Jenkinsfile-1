@@ -1,29 +1,58 @@
 pipeline {
     agent any
 
-    parameters     {
-            string(name: 'BinaryCalculatorTest', defaultValue: 'BinaryCalculatorTest', description: 'Name of the test class')
-            string(name: 'add', defaultValue: 'testAddition', description: 'Name of the test method')
+     parameters {
+            booleanParam(name: 'RUN_BINARY', defaultValue: true, description: 'Run BinaryCalculatorTest')
+            booleanParam(name: 'RUN_DECIMAL', defaultValue: true, description: 'Run DecimalCalculatorTest')
+            booleanParam(name: 'RUN_HEX', defaultValue: true, description: 'Run HexCalculatorTest')
         }
+
     //{
     //    booleanParam(defaultValue: true, description: 'run calculator tests', name: 'calculator')
     //}
 
-    stages {
-            stage('Binary') {
+    tools {
+            maven 'Maven 3.8.8' // Make sure this name matches your Jenkins global tool config
+        }
+
+        stages {
+            stage('Binary Calculator Tests') {
+                when {
+                    expression { return params.RUN_BINARY }
+                }
                 steps {
-                    echo "Running all tests in class: ${params.BinaryCalculatorTest}"
-                    bat "mvn -Dtest=${params.BinaryCalculatorTest} test"
+                    echo "Running BinaryCalculatorTest"
+                    bat "mvn -Dtest=calculator.BinaryCalculatorTest test"
                 }
             }
 
-            stage('Single Binary') {
+            stage('Decimal Calculator Tests') {
+                when {
+                    expression { return params.RUN_DECIMAL }
+                }
                 steps {
-                    echo "Running single test: ${params.BinaryCalculatorTest}#${params.add}"
-                    bat "mvn -Dtest=${params.BinaryCalculatorTest}#${params.add} test"
+                    echo "Running DecimalCalculatorTest"
+                    bat "mvn -Dtest=calculator.DecimalCalculatorTest test"
                 }
             }
+
+            stage('Hex Calculator Tests') {
+                when {
+                    expression { return params.RUN_HEX }
+                }
+                steps {
+                    echo "Running HexCalculatorTest"
+                    bat "mvn -Dtest=calculator.HexCalculatorTest test"
+                }
+            }
+
+            post {
+                    always {
+                        echo 'Finished running selected test stages.'
+                    }
+                }
         }
+
 
 
     //stages {
