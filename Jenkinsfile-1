@@ -22,6 +22,7 @@ pipeline {
                 steps {
                     echo "Running BinaryCalculatorTest"
                     bat "mvn -Dtest=calculator.BinaryCalculatorTest test"
+                    bat "mvn surefire-report:report-only"
                 }
             }
 
@@ -32,6 +33,7 @@ pipeline {
                 steps {
                     echo "Running DecimalCalculatorTest"
                     bat "mvn -Dtest=calculator.DecimalCalculatorTest test"
+                    bat "mvn surefire-report:report-only"
                 }
             }
 
@@ -42,8 +44,21 @@ pipeline {
                 steps {
                     echo "Running HexCalculatorTest"
                     bat "mvn -Dtest=calculator.HexCalculatorTest test"
+                    bat "mvn surefire-report:report-only"
                 }
             }
+            stage('Publish HTML Report') {
+                        steps {
+                            publishHTML(target: [
+                                reportDir: 'target/site',
+                                reportFiles: 'unit-test-report.html',
+                                reportName: 'Unit Test Report',
+                                keepAll: true,
+                                alwaysLinkToLastBuild: true,
+                                allowMissing: false
+                            ])
+                        }
+                    }
 
 
         }
