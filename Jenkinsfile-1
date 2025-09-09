@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters     {
-            string(name: 'BinaryCalculatorTest', defaultValue: 'CalculatorTest', description: 'Name of the test class')
+            string(name: 'BinaryCalculatorTest', defaultValue: 'BinaryCalculatorTest', description: 'Name of the test class')
             string(name: 'add', defaultValue: 'testAddition', description: 'Name of the test method')
         }
     //{
