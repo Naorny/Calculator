@@ -2,6 +2,7 @@ pipeline {
     agent any
 
      parameters {
+            booleanParam(defaultValue: true, description: 'run calculator tests', name: 'calculator')
             booleanParam(name: 'RUN_BINARY', defaultValue: true, description: 'Run BinaryCalculatorTest')
             booleanParam(name: 'RUN_DECIMAL', defaultValue: true, description: 'Run DecimalCalculatorTest')
             booleanParam(name: 'RUN_HEX', defaultValue: true, description: 'Run HexCalculatorTest')
