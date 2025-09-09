@@ -12,17 +12,17 @@ pipeline {
     stages {
             stage('Binary') {
                 steps {
-                    // Run specific test method in the specified class
-                    bat "mvn -Dtest=${params.BinaryCalculatorTest} test" //#${params.TEST_METHOD} test"
+                    echo "Running all tests in class: ${params.BinaryCalculatorTest}"
+                    bat "mvn -Dtest=${params.BinaryCalculatorTest} test"
                 }
             }
 
             stage('Single Binary') {
-                            steps {
-                                // Run specific test method in the specified class
-                                bat "mvn -Dtest=${params.BinaryCalculatorTest}#${params.add}} test" //#${params.TEST_METHOD} test"
-                            }
-                        }
+                steps {
+                    echo "Running single test: ${params.BinaryCalculatorTest}#${params.add}"
+                    bat "mvn -Dtest=${params.BinaryCalculatorTest}#${params.add} test"
+                }
+            }
         }
 
 
