@@ -11,9 +11,9 @@ pipeline {
     //    booleanParam(defaultValue: true, description: 'run calculator tests', name: 'calculator')
     //}
 
-    tools {
-            maven 'Maven 3.9.6' // Make sure this name matches your Jenkins global tool config
-        }
+    //tools {
+    //        maven 'Maven 3.9.6' // Make sure this name matches your Jenkins global tool config
+    //    }
 
         stages {
             stage('Binary Calculator Tests') {
