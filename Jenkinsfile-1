@@ -1,21 +1,42 @@
 pipeline {
     agent any
 
-    parameters {
-        booleanParam(defaultValue: true, description: 'run calculator tests', name: 'calculator')
-    }
+    parameters     {
+            string(name: 'BinaryCalculatorTest', defaultValue: 'CalculatorTest', description: 'Name of the test class')
+            string(name: 'add', defaultValue: 'testAddition', description: 'Name of the test method')
+        }
+    //{
+    //    booleanParam(defaultValue: true, description: 'run calculator tests', name: 'calculator')
+    //}
 
     stages {
-        stage("calculator") {
-            when {
-                expression { return params.calculator }
-        }
-        steps {
-              bat "mvn test"
+            stage('Binary') {
+                steps {
+                    // Run specific test method in the specified class
+                    bat "mvn -Dtest=${params.BinaryCalculatorTest} test" //#${params.TEST_METHOD} test"
+                }
+            }
 
+            stage('Single Binary') {
+                            steps {
+                                // Run specific test method in the specified class
+                                bat "mvn -Dtest=${params.BinaryCalculatorTest#${params.add}} test" //#${params.TEST_METHOD} test"
+                            }
+                        }
         }
-       }
-      }
+
+
+    //stages {
+    //    stage("calculator") {
+    //        when {
+    //            expression { return params.calculator }
+    //    }
+    //    steps {
+    //          bat "mvn test"
+    //
+    //    }
+    //   }
+    //  }
     //post {
     //    always {
     //        allure([
