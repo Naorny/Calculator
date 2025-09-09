@@ -12,9 +12,7 @@ pipeline {
     //    booleanParam(defaultValue: true, description: 'run calculator tests', name: 'calculator')
     //}
 
-    //tools {
-    //        maven 'Maven 3.9.6' // Make sure this name matches your Jenkins global tool config
-    //    }
+
 
         stages {
             stage('Binary Calculator Tests') {
@@ -49,6 +47,15 @@ pipeline {
 
 
         }
+        post {
+                always {
+                    echo 'Generating Allure Report...'
+                    allure([
+                        reportBuildPolicy: 'ALWAYS',
+                        results: [[path: 'allure-results']]
+                    ])
+                }
+            }
 
 
 
@@ -63,12 +70,5 @@ pipeline {
     //    }
     //   }
     //  }
-    //post {
-    //    always {
-    //        allure([
-    //            reportBuildPolicy: 'ALWAYS',
-    //            results: [[path: 'allure-results']]
-    //            ])
-    //    }
-    // }
+
 }
