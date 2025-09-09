@@ -11,7 +11,7 @@ pipeline {
                 expression { return params.calculator }
         }
         steps {
-              mvn test
+              bat "mvn test"
 
         }
        }
